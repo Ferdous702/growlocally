@@ -1,23 +1,19 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\ContactInquiryController;
+use App\Http\Controllers\Api\PortfolioController;
+use App\Http\Controllers\Api\ServiceController;
+use App\Http\Controllers\Api\TestimonialController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
+// ── Public read-only endpoints (consumed by React frontend) ───────────
+Route::get('/services',           [ServiceController::class, 'index']);
+Route::get('/services/{slug}',    [ServiceController::class, 'show']);
 
-Route::middleware('auth:sanctum','role:admin')->group(function () {
-    // Admin routes
-    Route::get('/admin/dashboard', function() {
-        return "Welcome to the Admin Dashboard!";
-    });
-});
+Route::get('/portfolios',         [PortfolioController::class, 'index']);
+Route::get('/portfolios/{slug}',  [PortfolioController::class, 'show']);
+
+Route::get('/testimonials',       [TestimonialController::class, 'index']);
+
+// ── Public write endpoint ─────────────────────────────────────────────
+Route::post('/contact',           [ContactInquiryController::class, 'store']);
