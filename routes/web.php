@@ -9,6 +9,9 @@ use App\Livewire\Admin\ServiceManager;
 use App\Livewire\Admin\TestimonialManager;
 use Illuminate\Support\Facades\Route;
 
+// ── Public ────────────────────────────────────────────────────────────
+Route::get('/', fn () => view('welcome'))->name('home');
+
 // ── Auth ──────────────────────────────────────────────────────────────
 Route::get('/admin/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/admin/login', [AuthController::class, 'login'])->name('admin.login');
