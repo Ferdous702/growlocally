@@ -1,0 +1,188 @@
+/* PRICING PAGE (scoped) - ported from standalone page, styling unchanged */
+.pricing-page{font-family:'Inter',sans-serif;background:#f1f5f9;color:#1e293b}
+.pricing-page a{text-decoration:none;color:inherit}
+.pricing-page .hero { background:#0f172a;padding:44px 24px 40px;text-align:center }
+/* Neutralise the global site .hero rules that leak in via the shared class name */
+.pricing-page .hero { min-height:0; display:block; align-items:initial; flex-direction:initial; overflow:visible; }
+.pricing-page .hero::before, .pricing-page .hero::after { content:none; background:none; animation:none; }
+.pricing-page .hero h1 { font-size:1.85rem;font-weight:800;color:#fff;margin-bottom:8px }
+.pricing-page .hero h1 span { color:#4ade80 }
+.pricing-page .hero p { color:#94a3b8;font-size:.88rem;max-width:440px;margin:0 auto 20px;line-height:1.65 }
+.pricing-page .billing-toggle { display:inline-flex;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:8px;overflow:hidden }
+.pricing-page .tgl { padding:8px 22px;font-size:.8rem;font-weight:600;border:none;background:transparent;color:#94a3b8;cursor:pointer;transition:.18s }
+.pricing-page .tgl.act { background:#16a34a;color:#fff }
+.pricing-page .wrap { max-width:1200px;margin:0 auto;padding:0 24px }
+.pricing-page .tab-bar { background:#f1f5f9;border-bottom:none;position:sticky;top:60px;z-index:40;box-shadow:0 2px 12px rgba(0,0,0,.07);padding:12px 16px }
+.pricing-page .tab-bar-inner { max-width:1200px;margin:0 auto;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;justify-content:center;flex-wrap:wrap }
+.pricing-page .tab-bar-inner::-webkit-scrollbar { display:none }
+.pricing-page .tab-btn { display:flex;align-items:center;gap:6px;padding:9px 18px;border:2px solid #e2e8f0;background:#fff;color:#64748b;font-size:.82rem;font-weight:600;cursor:pointer;border-radius:50px;white-space:nowrap;transition:.18s;flex-shrink:0 }
+.pricing-page .tab-btn:hover { color:#1e293b;border-color:#94a3b8;background:#f8fafc }
+.pricing-page .tab-btn.act { color:#fff;background:#16a34a;border-color:#16a34a }
+.pricing-page .tab-panel { display:none;padding:40px 0 60px }
+.pricing-page .tab-panel.act { display:block }
+.pricing-page .pkg-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:20px }
+.pricing-page .pkg-card { background:#fff;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;position:relative;border:2px solid transparent;transition:.2s;box-shadow:0 4px 20px rgba(0,0,0,.10),0 1px 4px rgba(0,0,0,.06) }
+.pricing-page .pkg-card:hover { box-shadow:0 8px 32px rgba(0,0,0,.15),0 2px 8px rgba(0,0,0,.08) }
+.pricing-page .pkg-card.popular { border-color:#e87c2e }
+.pricing-page .popular-badge { position:absolute;top:16px;right:16px;background:#4ade80;color:#14532d;font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;padding:4px 10px;border-radius:999px }
+.pricing-page .pkg-top { padding:18px 18px 14px }
+.pricing-page .pkg-step { display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;padding:3px 10px;border-radius:999px;margin-bottom:10px }
+.pricing-page .pkg-emoji { font-size:1.6rem;margin-bottom:6px;display:block }
+.pricing-page .pkg-name { font-size:1.15rem;font-weight:800;margin-bottom:4px }
+.pricing-page .pkg-tagline { font-size:.76rem;color:#64748b;line-height:1.5;margin-bottom:10px }
+.pricing-page .pkg-price-label { font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#94a3b8;margin-bottom:2px }
+.pricing-page .pkg-price { font-size:2rem;font-weight:800;line-height:1;margin-bottom:2px }
+.pricing-page .pkg-price span { font-size:.85rem;font-weight:500;color:#64748b }
+.pricing-page .pkg-price-note { font-size:.7rem;color:#94a3b8 }
+.pricing-page .divider { height:2px;background:#e2e8f0;margin:12px 0;border-radius:2px }
+.pricing-page .pkg-features { padding:0 18px;flex:1 }
+.pricing-page .pkg-features ul { list-style:none;display:grid;gap:0 }
+.pricing-page .pkg-features li { display:flex;align-items:flex-start;gap:8px;font-size:.78rem;color:#334155;line-height:1.45;padding:8px 0;border-bottom:1px solid #f1f5f9 }
+.pricing-page .pkg-features li:last-child { border-bottom:none }
+.pricing-page .pkg-features li.dim { color:#94a3b8 }
+.pricing-page .check-wrap { width:20px;height:20px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;margin-top:1px }
+.pricing-page .check-wrap svg { width:10px;height:10px }
+.pricing-page .feat-text strong { font-weight:700;color:#0f172a }
+.pricing-page .dim .feat-text { color:#b0b8c4 }
+.pricing-page .dim .feat-text strong { color:#b0b8c4 }
+.pricing-page .pkg-cta { padding:16px 18px }
+.pricing-page .cta-btn { width:100%;padding:14px;border-radius:50px;border:none;font-size:.88rem;font-weight:700;cursor:pointer;transition:.18s;display:block;text-align:center }
+.pricing-page .cta-btn:hover { opacity:.88;transform:translateY(-1px) }
+.pricing-page .theme-green .pkg-step { background:#dcfce7;color:#16a34a }
+.pricing-page .theme-green .pkg-name { color:#14532d }
+.pricing-page .theme-green .pkg-price { color:#15803d }
+.pricing-page .theme-green .check-wrap { background:#dcfce7 }
+.pricing-page .theme-green .check-wrap svg path { stroke:#16a34a }
+.pricing-page .theme-green .cta-btn { background:#14532d;color:#fff }
+.pricing-page .theme-green .pkg-features li.dim { color:#334155 }
+.pricing-page .theme-green .dim .feat-text, .pricing-page .theme-green .dim .feat-text strong { color:#334155 }
+.pricing-page .theme-green .dim .check-wrap { background:#dcfce7;opacity:1 }
+.pricing-page .theme-green .dim .check-wrap svg path { stroke:#16a34a }
+.pricing-page .theme-blue .pkg-step { background:#dbeafe;color:#2563eb }
+.pricing-page .theme-blue .pkg-name { color:#1e3a8a }
+.pricing-page .theme-blue .pkg-price { color:#1d4ed8 }
+.pricing-page .theme-blue .check-wrap { background:#dbeafe }
+.pricing-page .theme-blue .check-wrap svg path { stroke:#2563eb }
+.pricing-page .theme-blue .cta-btn { background:#2563eb;color:#fff }
+.pricing-page .theme-blue .pkg-features li.dim { color:#334155 }
+.pricing-page .theme-blue .dim .feat-text, .pricing-page .theme-blue .dim .feat-text strong { color:#334155 }
+.pricing-page .theme-blue .dim .check-wrap { background:#dbeafe;opacity:1 }
+.pricing-page .theme-blue .dim .check-wrap svg path { stroke:#2563eb }
+.pricing-page .theme-orange .pkg-step { background:#fff7ed;color:#ea580c }
+.pricing-page .theme-orange .pkg-name { color:#9a3412 }
+.pricing-page .theme-orange .pkg-tagline { color:#64748b }
+.pricing-page .theme-orange .pkg-price { color:#c2410c }
+.pricing-page .theme-orange .pkg-price span { color:#64748b }
+.pricing-page .theme-orange .pkg-price-label { color:#94a3b8 }
+.pricing-page .theme-orange .pkg-price-note { color:#94a3b8 }
+.pricing-page .theme-orange .divider { background:#e2e8f0 }
+.pricing-page .theme-orange .pkg-features li { color:#334155 }
+.pricing-page .theme-orange .pkg-features li.dim { color:#334155 }
+.pricing-page .theme-orange .dim .feat-text, .pricing-page .theme-orange .dim .feat-text strong { color:#334155 }
+.pricing-page .theme-orange .feat-text strong { color:#0f172a }
+.pricing-page .theme-orange .check-wrap { background:#ffedd5 }
+.pricing-page .theme-orange .check-wrap svg path { stroke:#ea580c }
+.pricing-page .theme-orange .cta-btn { background:#ea580c;color:#fff }
+.pricing-page .pkg-card.theme-orange { background:#fff }
+.pricing-page .theme-purple .pkg-step { background:#f3e8ff;color:#9333ea }
+.pricing-page .theme-purple .pkg-name { color:#581c87 }
+.pricing-page .theme-purple .pkg-price { color:#7e22ce }
+.pricing-page .theme-purple .check-wrap { background:#f3e8ff }
+.pricing-page .theme-purple .check-wrap svg path { stroke:#9333ea }
+.pricing-page .theme-purple .cta-btn { background:#9333ea;color:#fff }
+.pricing-page .theme-teal .pkg-step { background:#cffafe;color:#0891b2 }
+.pricing-page .theme-teal .pkg-name { color:#164e63 }
+.pricing-page .theme-teal .pkg-price { color:#0e7490 }
+.pricing-page .theme-teal .check-wrap { background:#cffafe }
+.pricing-page .theme-teal .check-wrap svg path { stroke:#0891b2 }
+.pricing-page .theme-teal .cta-btn { background:#0891b2;color:#fff }
+.pricing-page .svc-cards { display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px }
+.pricing-page .svc-card { background:#fff;border:1.5px solid #e2e8f0;border-radius:14px;padding:18px;display:flex;flex-direction:column;transition:.18s }
+.pricing-page .svc-card:hover { transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.08) }
+.pricing-page .svc-card-top { display:flex;align-items:center;gap:10px;margin-bottom:10px }
+.pricing-page .svc-icon { width:36px;height:36px;border-radius:9px;display:grid;place-items:center;font-size:1rem;flex-shrink:0 }
+.pricing-page .svc-name { font-size:.88rem;font-weight:700 }
+.pricing-page .svc-tag { font-size:.62rem;font-weight:700;padding:2px 8px;border-radius:999px;display:inline-block;margin-top:2px }
+.pricing-page .svc-desc { font-size:.77rem;color:#64748b;line-height:1.55;margin-bottom:10px;flex:1 }
+.pricing-page .svc-list { list-style:none;display:grid;gap:5px;margin-bottom:12px }
+.pricing-page .svc-list li { font-size:.75rem;color:#334155;padding-left:14px;position:relative;line-height:1.4 }
+.pricing-page .svc-list li::before { content:"✓";position:absolute;left:0;font-weight:700;font-size:.68rem }
+.pricing-page .svc-price { display:flex;align-items:baseline;gap:4px;margin-bottom:10px }
+.pricing-page .scp-val { font-size:1.15rem;font-weight:800 }
+.pricing-page .scp-per { font-size:.7rem;color:#94a3b8 }
+.pricing-page .svc-btn { width:100%;padding:9px;border-radius:50px;border:none;font-size:.78rem;font-weight:700;cursor:pointer;transition:.18s;margin-top:auto }
+.pricing-page .svc-btn:hover { opacity:.88 }
+.pricing-page .c-green .svc-icon { background:#dcfce7;color:#16a34a }
+.pricing-page .c-green .svc-tag { background:#dcfce7;color:#15803d }
+.pricing-page .c-green .scp-val { color:#15803d }
+.pricing-page .c-green .svc-list li::before { color:#16a34a }
+.pricing-page .c-green .svc-btn { background:#16a34a;color:#fff }
+.pricing-page .c-green .svc-card:hover { border-color:#16a34a }
+.pricing-page .c-blue .svc-icon { background:#dbeafe;color:#2563eb }
+.pricing-page .c-blue .svc-tag { background:#dbeafe;color:#1d4ed8 }
+.pricing-page .c-blue .scp-val { color:#1d4ed8 }
+.pricing-page .c-blue .svc-list li::before { color:#2563eb }
+.pricing-page .c-blue .svc-btn { background:#2563eb;color:#fff }
+.pricing-page .c-blue .svc-card:hover { border-color:#2563eb }
+.pricing-page .c-orange .svc-icon { background:#ffedd5;color:#ea580c }
+.pricing-page .c-orange .svc-tag { background:#fff7ed;color:#c2410c }
+.pricing-page .c-orange .scp-val { color:#c2410c }
+.pricing-page .c-orange .svc-list li::before { color:#ea580c }
+.pricing-page .c-orange .svc-btn { background:#ea580c;color:#fff }
+.pricing-page .c-orange .svc-card:hover { border-color:#ea580c }
+.pricing-page .c-purple .svc-icon { background:#f3e8ff;color:#9333ea }
+.pricing-page .c-purple .svc-tag { background:#f3e8ff;color:#7e22ce }
+.pricing-page .c-purple .scp-val { color:#7e22ce }
+.pricing-page .c-purple .svc-list li::before { color:#9333ea }
+.pricing-page .c-purple .svc-btn { background:#9333ea;color:#fff }
+.pricing-page .c-purple .svc-card:hover { border-color:#9333ea }
+.pricing-page .c-teal .svc-icon { background:#cffafe;color:#0891b2 }
+.pricing-page .c-teal .svc-tag { background:#cffafe;color:#0e7490 }
+.pricing-page .c-teal .scp-val { color:#0e7490 }
+.pricing-page .c-teal .svc-list li::before { color:#0891b2 }
+.pricing-page .c-teal .svc-btn { background:#0891b2;color:#fff }
+.pricing-page .c-teal .svc-card:hover { border-color:#0891b2 }
+.pricing-page .c-red .svc-icon { background:#fee2e2;color:#dc2626 }
+.pricing-page .c-red .svc-tag { background:#fee2e2;color:#b91c1c }
+.pricing-page .c-red .scp-val { color:#b91c1c }
+.pricing-page .c-red .svc-list li::before { color:#dc2626 }
+.pricing-page .c-red .svc-btn { background:#dc2626;color:#fff }
+.pricing-page .c-red .svc-card:hover { border-color:#dc2626 }
+.pricing-page .c-pink .svc-icon { background:#fce7f3;color:#db2777 }
+.pricing-page .c-pink .svc-tag { background:#fce7f3;color:#be185d }
+.pricing-page .c-pink .scp-val { color:#be185d }
+.pricing-page .c-pink .svc-list li::before { color:#db2777 }
+.pricing-page .c-pink .svc-btn { background:#db2777;color:#fff }
+.pricing-page .c-pink .svc-card:hover { border-color:#db2777 }
+.pricing-page .c-indigo .svc-icon { background:#e0e7ff;color:#4f46e5 }
+.pricing-page .c-indigo .svc-tag { background:#e0e7ff;color:#4338ca }
+.pricing-page .c-indigo .scp-val { color:#4338ca }
+.pricing-page .c-indigo .svc-list li::before { color:#4f46e5 }
+.pricing-page .c-indigo .svc-btn { background:#4f46e5;color:#fff }
+.pricing-page .c-indigo .svc-card:hover { border-color:#4f46e5 }
+.pricing-page .c-amber .svc-icon { background:#fef3c7;color:#d97706 }
+.pricing-page .c-amber .svc-tag { background:#fef3c7;color:#b45309 }
+.pricing-page .c-amber .scp-val { color:#b45309 }
+.pricing-page .c-amber .svc-list li::before { color:#d97706 }
+.pricing-page .c-amber .svc-btn { background:#d97706;color:#fff }
+.pricing-page .c-amber .svc-card:hover { border-color:#d97706 }
+.pricing-page .c-slate .svc-icon { background:#f1f5f9;color:#475569 }
+.pricing-page .c-slate .svc-tag { background:#f1f5f9;color:#334155 }
+.pricing-page .c-slate .scp-val { color:#334155 }
+.pricing-page .c-slate .svc-list li::before { color:#475569 }
+.pricing-page .c-slate .svc-btn { background:#334155;color:#fff }
+.pricing-page .c-slate .svc-card:hover { border-color:#475569 }
+.pricing-page .section-label { display:flex;align-items:center;gap:12px;margin:0 0 24px }
+.pricing-page .section-label-line { flex:1;height:1px;background:#e2e8f0 }
+.pricing-page .section-label-text { font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:#64748b;white-space:nowrap }
+.pricing-page .cta-band { background:#15803d;padding:44px 24px;text-align:center }
+.pricing-page .cta-band h2 { font-size:1.5rem;font-weight:800;color:#fff;margin-bottom:7px }
+.pricing-page .cta-band p { color:rgba(255,255,255,.88);font-size:.88rem;max-width:400px;margin:0 auto 18px;line-height:1.65 }
+.pricing-page .btn-white { display:inline-block;background:#fff;color:#15803d;padding:11px 28px;border-radius:50px;font-weight:700;font-size:.88rem }
+@media(max-width:900px) {
+.pricing-page .pkg-grid { grid-template-columns:1fr 1fr }
+}
+@media(max-width:640px) {
+.pricing-page .pkg-grid { grid-template-columns:1fr }
+.pricing-page .svc-cards { grid-template-columns:1fr 1fr }
+}

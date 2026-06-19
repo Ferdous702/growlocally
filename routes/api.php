@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\BookingController;
 use App\Http\Controllers\Api\ContactInquiryController;
 use App\Http\Controllers\Api\PortfolioController;
 use App\Http\Controllers\Api\ServiceController;
@@ -15,5 +16,6 @@ Route::get('/portfolios/{slug}',  [PortfolioController::class, 'show']);
 
 Route::get('/testimonials',       [TestimonialController::class, 'index']);
 
-// ── Public write endpoint ─────────────────────────────────────────────
-Route::post('/contact',           [ContactInquiryController::class, 'store']);
+// ── Public write endpoints ────────────────────────────────────────────
+Route::post('/contact',  [ContactInquiryController::class, 'store']);
+Route::post('/bookings', [BookingController::class, 'store']);

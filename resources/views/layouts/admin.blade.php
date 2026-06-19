@@ -28,6 +28,7 @@
                     ['route' => 'admin.portfolios',           'label' => 'Portfolios'],
                     ['route' => 'admin.testimonials',         'label' => 'Testimonials'],
                     ['route' => 'admin.contacts',             'label' => 'Contact Inquiries'],
+                    ['route' => 'admin.bookings',             'label' => 'Bookings'],
                 ];
             @endphp
 

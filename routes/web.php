@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AuthController;
+use App\Livewire\Admin\BookingManager;
 use App\Livewire\Admin\ContactManager;
 use App\Livewire\Admin\Dashboard;
 use App\Livewire\Admin\PortfolioCategoryManager;
@@ -9,8 +10,8 @@ use App\Livewire\Admin\ServiceManager;
 use App\Livewire\Admin\TestimonialManager;
 use Illuminate\Support\Facades\Route;
 
-// ── Public ────────────────────────────────────────────────────────────
-Route::get('/', fn () => view('welcome'))->name('home');
+// ── Public (React SPA — hash-based routing handles all page transitions) ──
+Route::get('/', fn () => view('frontend'))->name('home');
 
 // ── Auth ──────────────────────────────────────────────────────────────
 Route::get('/admin/login', [AuthController::class, 'showLogin'])->name('login');
@@ -26,4 +27,5 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::get('/portfolios',           PortfolioManager::class)->name('portfolios');
     Route::get('/testimonials',         TestimonialManager::class)->name('testimonials');
     Route::get('/contacts',             ContactManager::class)->name('contacts');
+    Route::get('/bookings',             BookingManager::class)->name('bookings');
 });
