@@ -18,7 +18,7 @@ class BookingConfirmation extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Your free strategy call is booked — GrowLocally',
+            subject: "You're booked! Your free strategy call with Grow Locally",
         );
     }
 
