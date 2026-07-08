@@ -1,10 +1,10 @@
 {
-  "_chunk-BpQH8Ho1.js": {
-    "file": "assets/chunk-BpQH8Ho1.js",
-    "name": "chunk"
+  "_rolldown-runtime-BpQH8Ho1.js": {
+    "file": "assets/rolldown-runtime-BpQH8Ho1.js",
+    "name": "rolldown-runtime"
   },
   "resources/css/app.css": {
-    "file": "assets/app-Bh1WKXTH.css",
+    "file": "assets/app-DAPXPNnB.css",
     "name": "app",
     "names": [
       "app.css"
@@ -13,21 +13,21 @@
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-Be4pcXzL.js",
+    "file": "assets/app-DLLWulUl.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "imports": [
-      "_chunk-BpQH8Ho1.js"
+      "_rolldown-runtime-BpQH8Ho1.js"
     ]
   },
   "resources/js/react/main.jsx": {
-    "file": "assets/main-DDrLZmf_.js",
+    "file": "assets/main-CwTSOsZB.js",
     "name": "main",
     "src": "resources/js/react/main.jsx",
     "isEntry": true,
     "imports": [
-      "_chunk-BpQH8Ho1.js"
+      "_rolldown-runtime-BpQH8Ho1.js"
     ],
     "css": [
       "assets/main-CNf9seoW.css"
