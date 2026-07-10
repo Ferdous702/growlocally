@@ -1,0 +1,10 @@
+DirectoryIndex public/index.php
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Hostinger shared hosting usually serves this repository from public_html.
+    # Laravel's front controller is in public/index.php, so internally send all
+    # browser requests into the public directory without changing the URL.
+    RewriteRule ^(?!public/)(.*)$ public/$1 [L]
+</IfModule>
